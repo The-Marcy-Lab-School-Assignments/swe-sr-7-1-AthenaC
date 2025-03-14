@@ -55,7 +55,7 @@ After fixing the code provide and explanation to what you fixed and why it neede
 
 ### Response 4
 
-> The issue in the code arises from using an `async` function directly within the `useEffect` hook, which React doesn't support because it expects the callback to return either `void` or a cleanup function, not a promise. To fix this, I moved the `async` logic into a separate function (`fetchDogImage`) inside the `useEffect` and called it.
+> The issue in the code arises from using an `async` function directly within the `useEffect` hook, which React doesn't support because it expects the callback to return either `void` or a cleanup function, not a promise. To fix this, I moved the `async` logic into a separate function (`fetchDogImage`) inside the `useEffect` and called it. Additionally, I added the `alt` to the `img` in case the image did not load.
 >
 > ```js
 > const DogDisplay = () => {
@@ -79,6 +79,6 @@ After fixing the code provide and explanation to what you fixed and why it neede
 >     fetchDogImage();
 >   }, []);
 >
->   return <img src={imgSrc} />;
+>   return <img src={imgSrc} alt="random dog image" />;
 > };
 > ```
