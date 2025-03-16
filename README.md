@@ -48,6 +48,43 @@ Describe the different ways the useEffect hook can be triggered in a React compo
 
 ### Response 3
 
+The `useEffect` hook in React allows you to perform side effects in function components. These side effects include data fetching, sDOM manipulations, event listeners, and more. The dependency array determines when useEffect runs. Based on how it's used, useEffect can be triggered in different ways. Let's go over those different ways:
+
+1. Runs on Every Render (No Dependency Array)
+   - After every state update or re-render.
+
+```jsx
+useEffect(() => {
+  console.log("Effect runs after every render!");
+});
+```
+
+2. Runs Only on Mount (Empty Dependency Array [])
+   - Fetching initial data from an API.
+   - Setting up event listeners.'
+   - Renders once on mount
+
+```jsx
+useEffect(() => {
+  console.log("Effect runs only on mount!");
+
+  return () => {
+    console.log("Cleanup runs on unmount!");
+  };
+}, []);
+```
+
+3. Runs When Any of Multiple Dependencies Change ([dep1, dep2])
+   -If multiple dependencies are listed, useEffect runs when any of them change.
+
+```jsx
+useEffect(() => {
+  console.log(
+    `Effect runs when count or text changes! Count: ${count}, Text: ${text}`
+  );
+}, [count, text]);
+```
+
 ## Prompt 4
 
 The component below makes a mistake when using useEffect. When running this code, we will get an error from React! Please fix this code.
