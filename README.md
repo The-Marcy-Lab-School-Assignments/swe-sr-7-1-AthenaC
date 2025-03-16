@@ -20,6 +20,28 @@ Explain how the useState hook is used in React to manage state within functional
 
 ### Response 2
 
+The `useState` react hook allows components to maintain and update local state(data) without manually having to re-render a webpage. Instead, components re-render when data changes, making user interfaces dynamic and interactive. Without this, user actions like clicking a button, typing in an input, or toggling visibility wouldn't reflect updates properly.
+
+To declare a variable with the `useState` react hook, you have to declare it, since it is a function. the `useState()` function takes in an initial value, and returns an array. The array contains the variable name, and a setter function that will be called when the state is updated.
+
+In this code block, we see these concepts demonstrated.
+
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0); // count variable declared & starts at 0
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  ); // setCount function called to update and re-render page when button is clicked and count is updated
+}
+```
+
 ## Prompt 3
 
 Describe the different ways the useEffect hook can be triggered in a React component. Include an explanation of how the dependency array influences its behavior. If possible, provide a code example for each scenario to illustrate your explanation.
